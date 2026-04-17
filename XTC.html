@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smooth Menu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .menu, .credits {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transform: scale(0.8);
+      opacity: 0;
+      animation: openMenu 0.5s ease forwards;
+      text-align: center;
+    }
+
+    .credits {
+      display: none;
+    }
+
+    @keyframes openMenu {
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .menu button, .credits button {
+      display: block;
+      width: 220px;
+      margin: 10px auto;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #333;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .menu button:hover, .credits button:hover {
+      background: #555;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu" id="mainMenu">
+    <button onclick="goToSite()">Enter Eriks håla</button>
+    <button onclick="openDoc()">Open Document</button>
+    <button onclick="showCredits()">Credits</button>
+  </div>
+
+  <div class="credits" id="creditsMenu">
+    <h2>Credits</h2>
+    <p>credits to rhw github</p>
+    <button onclick="goBack()">Back</button>
+  </div>
+
+  <script>
+    function goToSite() {
+      window.location.href = "https://geology-aubdg.b-cdn.net/";
+    }
+
+    function openDoc() {
+      window.location.href = "https://docs.google.com/document/d/1s8D4AQg_piPlCQN3bLV6-UVI6RnRWSKaHOk2SBcTVzE/edit?usp=sharing";
+    }
+
+    function showCredits() {
+      document.getElementById("mainMenu").style.display = "none";
+      document.getElementById("creditsMenu").style.display = "block";
+    }
+
+    function goBack() {
+      document.getElementById("creditsMenu").style.display = "none";
+      document.getElementById("mainMenu").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
